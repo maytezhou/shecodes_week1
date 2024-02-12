@@ -32,5 +32,27 @@
       <button class="box">Change city</button>
       <footer>Coded by Mayte Souza</footer>
     </div>
+    <script>
+      function updateHeading(newheading) {
+        let h1 = document.querySelector("h1");
+        h1.innerHTML = newheading;
+      }
+
+      function isCold(temperature) {
+        return temperature < 0;
+      }
+      function changeCity() {
+        let city = prompt("What city do you live in?");
+        city = city.trim();
+        let temperature = prompt("What temperature is it?");
+        if (isCold(temperature)) {
+          updateHeading(`😞 <br /> Currently ${temperature} C° in ${city}`);
+        } else {
+          updateHeading(`😊 <br /> Currently ${temperature} C° in ${city}`);
+        }
+      }
+      let button = document.querySelector("button");
+      button.addEventListener("click", changeCity);
+    </script>
   </body>
 </html>
